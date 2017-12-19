@@ -4,31 +4,24 @@
         <title>SHT15</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
         <script src='//code.jquery.com/jquery-1.7.2.min.js'></script>
-        <script src='//funny-led.herokuapp.com:8080/socket.io/socket.io.js'></script>
+        <script src='//funny-led.herokuapp.com:8081/socket.io/socket.io.js'></script>
         <script>
-            var socket = io.connect('//funny-led.herokuapp.com:8080');
+            var socket = io.connect('//funny-led.herokuapp.com:8081');
             
             $(document).ready(function(){
-                $("#button").click(function() {
-                    //socket.emit('arduino' ,"Hello World!");
-                    socket.emit('arduino' ,{comando: 'LedOn'})
-                })
+
                 $("#checkboxAGS").click(function() {
                     if (document.getElementById("checkboxAGS").checked) {
-                        socket.emit('checkboxAGS' , {status: 'Checked'})
+                        //if ($this.checked) {
+                        socket.emit('cb01' , {status: 'On'})
+
                     }
                     else
-                        socket.emit('checkboxAGS' , {status: 'Unchecked'})
-                })
-            })
-            socket.on('temperature', function(data)
-            {
-                $('#temp_message').text(data.message);
+                        socket.emit('cb01' , {status: 'Off'})
+                });
+
             });
-            socket.on('humidity', function(data)
-            {
-                $('#hum_message').text(data.message);
-            });
+
             socket.on('checkboxAGS', function(data)
             {
                 if (data.status == "Checked")
@@ -36,15 +29,28 @@
                 else if (data.status == "Unchecked")
                     document.getElementById("checkboxAGS").checked = false;
             });
+
+            socket.on('ledAGS', function(data)
+            {
+                console.log(data);
+                if (data.status == "On")
+                    document.getElementById("ledAGS").classList.add('led-green');
+                else if (data.status == "Off")
+                    document.getElementById("ledAGS").classList.remove('led-green');
+            });
+
+
         </script>
     </head>
     <body>
-        <p1> Temperature: </p1>
+        <h1> Test </h1>
+        <br />
+        <p1> Temperatura: </p1>
         <p1 id='temp_message'></p1>
 
         <br />
         
-        <p1> Humidity: </p1>
+        <p1> Humedad: </p1>
         <p1 id='hum_message'></p1>
         <br />
 
@@ -53,6 +59,8 @@
             <input type="checkbox" id='checkboxAGS'>
             <div class="slider round"></div>
         </label>
+
+     <div class="led led-green" id='ledAGS'></div>
 
     </body>
 </html>
