@@ -13,6 +13,14 @@
   "engines": {
     "node": "4.7.2"
   },
-  "author": "Hipotenusa",
-  "license": "ISC"
+  "author": "hipotenusa",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hipotenusa/funny-led.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hipotenusa/funny-led/issues"
+  },
+  "homepage": "https://github.com/hipotenusa/funny-led#readme"
 }
