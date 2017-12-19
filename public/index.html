@@ -24,9 +24,9 @@
 
             socket.on('cb01', function(data)
             {
-                if (data.status == "Checked")
+                if (data.status == "On")
                     document.getElementById("checkboxAGS").checked = true;
-                else if (data.status == "Unchecked")
+                else if (data.status == "Off")
                     document.getElementById("checkboxAGS").checked = false;
             });
 
