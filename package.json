@@ -1,8 +1,8 @@
 {
-  "name": "esp8266_socketio_switch_led",
+  "name": "funny-led",
   "version": "1.0.0",
-  "description": "Example to switch on and off a led connected to an ESP8266 WiFi module using SocketIO and Heroku",
-  "main": "app.js",
+  "description": "ejemplo servidor express",
+  "main": "express.js",
   "dependencies": {
     "express": "*",
     "socket.io": "*"
@@ -10,15 +10,15 @@
   "scripts": {
     "start": "node app.js"
   },
-  "engines": {
-    "node": "4.7.2"
-  },
-  "author": "hipotenusa",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hipotenusa/funny-led.git"
   },
+  "engines": {
+    "node": "4.7.2"
+  },
+  "author": "Alfonso Gomez",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/hipotenusa/funny-led/issues"
   },
