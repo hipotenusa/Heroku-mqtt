@@ -9,8 +9,8 @@ ESP8266WiFiMulti wifiMulti;
 unsigned long previousMillis = 0;
 long interval = 5000;
 
-char host[] = "192.168.1.132";
-int port = 1234;
+char host[] = "funny-led.herokuapp.com";
+int port = 8081;
 extern String RID;
 extern String Rname;
 extern String Rcontent;
