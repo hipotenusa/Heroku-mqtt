@@ -12,12 +12,12 @@
 
                 $("#checkboxAGS").click(function() {
                     if (document.getElementById("checkboxAGS").checked) {
-                        document.getElementById("checkboxAGS").checked = true;
+                        document.getElementById("ledAGS").classList.add('led-green');
                         socket.emit('cb01' , {status: 'On'})
 
                     }
                     else {
-                        document.getElementById("checkboxAGS").checked = false;
+                        document.getElementById("ledAGS").classList.remove('led-green');
                         socket.emit('cb01' , {status: 'Off'})
                     }
                 });
