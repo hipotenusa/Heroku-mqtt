@@ -12,12 +12,14 @@
 
                 $("#checkboxAGS").click(function() {
                     if (document.getElementById("checkboxAGS").checked) {
-                        //if ($this.checked) {
+                        document.getElementById("checkboxAGS").checked = true;
                         socket.emit('cb01' , {status: 'On'})
 
                     }
-                    else
+                    else {
+                        document.getElementById("checkboxAGS").checked = false;
                         socket.emit('cb01' , {status: 'Off'})
+                    }
                 });
 
             });
