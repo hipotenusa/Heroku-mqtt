@@ -19,7 +19,7 @@ var server = app.listen(port, function () {
 });
 
 
-io.on('connection', function(socket)
+io.sockets.on('connection', function(socket)
 {
     console.log("Client has connected :)");
     console.log("Connected clients: " + Object.keys(io.sockets.sockets).length);
