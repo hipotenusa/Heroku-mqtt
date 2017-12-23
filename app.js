@@ -7,7 +7,7 @@ var app = express();
 var port = process.env.PORT || 1234;
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
     res.sendFile('/index.html');
