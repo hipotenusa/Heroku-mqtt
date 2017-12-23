@@ -9,6 +9,7 @@ var port = process.env.PORT || 1234;
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
+// set the home page route
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
