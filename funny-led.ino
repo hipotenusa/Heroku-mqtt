@@ -10,7 +10,7 @@ unsigned long previousMillis = 0;
 long interval = 5000;
 
 char host[] = "funny-led.herokuapp.com";
-int port = 8081;
+int port = 1234;
 extern String RID;
 extern String Rname;
 extern String Rcontent;
@@ -45,7 +45,7 @@ void setup() {
   WiFi.printDiag(Serial);
 
 // Connect to SocketIO server
-  if (!client.connect(host, port))
+  if (!client.connectHTTP(host, port))
   {
     Serial.println("connection failed");
     return;
