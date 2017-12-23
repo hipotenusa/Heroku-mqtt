@@ -1,7 +1,8 @@
 var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+var app = express()
+  , http = require('http')
+  , server = http.createServer(app)
+  , io = require('socket.io').listen(server);
 
 app.use(express.static('public'));
 
@@ -10,14 +11,10 @@ app.get('/', function (req, res) {
 });
 
 var port = process.env.PORT || 8081;
-var server = app.listen(port, function () {
-   var host = server.address().address
-   var port = server.address().port
 
-   //console.log("Server running on http://%s:%s", host, port)
+server.listen(port);
 
 });
-
 
 io.sockets.on('connection', function(socket)
 {
