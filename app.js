@@ -14,7 +14,7 @@ var server = app.listen(port, function () {
    var host = server.address().address
    var port = server.address().port
 
-   console.log("Server running on http://%s:%s", host, port)
+   //console.log("Server running on http://%s:%s", host, port)
 
 });
 
