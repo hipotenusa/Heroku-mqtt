@@ -1,44 +1,20 @@
 var express = require('express');
-var app = express()
-  , http = require('http')
-  , server = http.createServer(app)
-  , io = require('socket.io').listen(server);
+var http = require('http');
+var app = express();
 
-app.use(express.static('public'));
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 1234;
+
+// make express look in the public directory for assets (css/js/img)
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
     res.sendFile('/index.html');
 });
 
-var port = process.env.PORT || 8081;
-
-server.listen(port);
-
-});
-
-io.sockets.on('connection', function(socket)
-{
-    console.log("Client has connected :)");
-    console.log("Connected clients: " + Object.keys(io.sockets.sockets).length);
-    console.log(new Date(dt.now()));
-
-    socket.on('disconnect', function() {
-    console.log("Client has disconnected :(");
-    console.log("Connected clients: " + Object.keys(io.sockets.sockets).length);
-    console.log(new Date(dt.now()));
-    });
-
-    socket.on('cb01', function (data)
-    {
-    console.log(data.status);
-    io.sockets.emit('cb01', {status: data.status});
-    });
-
-
-    socket.on('ledAGS', function(data)
-  {
-    console.log(data);
-    io.sockets.emit('ledAGS', {status: data.status});
-  });
-
+app.listen(port, function() {
+  var host = http.address().address
+  var port = http.address().port
+  console.log("Server running on http://%s:%s", host, port)
 });
