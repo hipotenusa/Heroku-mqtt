@@ -27,9 +27,9 @@
             
             socket.on('theSwitch', function(data)
             {
-                if (data.status == "Checked")
+                if (data.status == "On")
                     document.getElementById("theSwitch").checked = true;
-                else if (data.status == "Unchecked")
+                else if (data.status == "Off")
                     document.getElementById("theSwitch").checked = false;
             });
             
