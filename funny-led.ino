@@ -68,17 +68,17 @@ void loop() {
 
   if (client.monitor())
   {
-    if (RID == "cb01" && Rname == "status")
+    if (RID == "theSwitch" && Rname == "status")
     {
       if (Rcontent == "On")
       {
         digitalWrite(LED_BUILTIN, LOW);
-        client.send("ledAGS", "status", "On");
+        client.send("theLed", "status", "On");
       }
       else if (Rcontent == "Off")
       {
         digitalWrite(LED_BUILTIN, HIGH);
-        client.send("ledAGS", "status", "Off");
+        client.send("theLed", "status", "Off");
       }
     }
   }
