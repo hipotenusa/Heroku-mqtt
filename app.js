@@ -16,6 +16,26 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
+io.sockets.on('connection', function(socket)
+{
+    console.log("Client has connected");
+
+    socket.on('disconnect', function() {
+      console.log("Client has disconnected");
+    });
+
+    socket.on('theSwitch', function (data) {
+      console.log(data.status);
+      io.sockets.emit('theSwitch', {status: data.status});
+    });
+
+    socket.on('theLed', function(data) {
+      console.log(data);
+      io.sockets.emit('theLed', {status: data.status});
+    });
+
+});
+
 server.listen(port, function() {
   //var host = http.address().address
   //var port = http.address().port
