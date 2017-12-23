@@ -3,45 +3,11 @@
     <head>
         <title>Funny Led</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
-        //<script src='//code.jquery.com/jquery-1.7.2.min.js'></script>
+        <script src='//code.jquery.com/jquery-1.7.2.min.js'></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io.connect(//funny-led.herokuapp.com:8081);
             
-            $(document).ready(function(){
-
-                $("#checkboxAGS").click(function() {
-                    if (document.getElementById("checkboxAGS").checked) {
-                        document.getElementById("ledAGS").classList.add('led-green');
-                        socket.emit('cb01' , {status: 'On'})
-
-                    }
-                    else {
-                        document.getElementById("ledAGS").classList.remove('led-green');
-                        socket.emit('cb01' , {status: 'Off'})
-                    }
-                });
-
-            });
-
-            socket.on('cb01', function(data)
-            {
-                if (data.status == "On")
-                    document.getElementById("checkboxAGS").checked = true;
-                else if (data.status == "Off")
-                    document.getElementById("checkboxAGS").checked = false;
-            });
-
-            socket.on('ledAGS', function(data)
-            {
-                console.log(data);
-                if (data.status == "On")
-                    document.getElementById("ledAGS").classList.add('led-green');
-                else if (data.status == "Off")
-                    document.getElementById("ledAGS").classList.remove('led-green');
-            });
-
-
         </script>
     </head>
     <body>
