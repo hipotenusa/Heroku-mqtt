@@ -12,17 +12,25 @@
                 $("#theSwitch").click(function() {
                     if (document.getElementById("theSwitch").checked) {
                         socket.emit('theSwitch' , {status: 'On'})
-                        document.getElementById("theLed").classList.add('led-green');
+                        //document.getElementById("theLed").classList.add('led-green');
                     }
                     else {
                         socket.emit('theSwitch' , {status: 'Off'})
-                        document.getElementById("theLed").classList.remove('led-green');
+                        //document.getElementById("theLed").classList.remove('led-green');
                     }
                 });
             });
             
             socket.on('connect', function() {
                 console.log("connected!");
+            });
+            
+            socket.on('theSwitch', function(data)
+            {
+                if (data.status == "Checked")
+                    document.getElementById("theSwitch").checked = true;
+                else if (data.status == "Unchecked")
+                    document.getElementById("theSwitch").checked = false;
             });
             
         </script>
