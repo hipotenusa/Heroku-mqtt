@@ -12,11 +12,9 @@
                 $("#theSwitch").click(function() {
                     if (document.getElementById("theSwitch").checked) {
                         socket.emit('theSwitch' , {status: 'On'})
-                        //document.getElementById("theLed").classList.add('led-green');
                     }
                     else {
                         socket.emit('theSwitch' , {status: 'Off'})
-                        //document.getElementById("theLed").classList.remove('led-green');
                     }
                 });
             });
@@ -31,6 +29,14 @@
                     document.getElementById("theSwitch").checked = true;
                 else if (data.status == "Off")
                     document.getElementById("theSwitch").checked = false;
+            });
+            
+            socket.on('theLed', function(data)
+            {
+                if (data.status == "On")
+                    document.getElementById("theLed").classList.add('led-green');
+                else if (data.status == "Off")
+                    document.getElementById("theLed").classList.remove('led-green');
             });
             
         </script>
