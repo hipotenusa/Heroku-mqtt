@@ -25,12 +25,12 @@ io.sockets.on('connection', function(socket)
     });
 
     socket.on('theSwitch', function (data) {
-      console.log(data.status);
+      console.log("Switch status = " + data.status);
       io.sockets.emit('theSwitch', {status: data.status});
     });
 
     socket.on('theLed', function(data) {
-      console.log(data);
+      console.log("Led status = " + data.status);
       io.sockets.emit('theLed', {status: data.status});
     });
 
