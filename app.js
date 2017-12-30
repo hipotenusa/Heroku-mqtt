@@ -20,7 +20,7 @@ io.sockets.on('connection', function(socket)
 {
     console.log("Client has connected");
 
-    socket.on('disconnect', function() {
+    socket.on('disconnect', function(reason) {
       console.log("Client has disconnected (" + reason + ")";
     });
 
