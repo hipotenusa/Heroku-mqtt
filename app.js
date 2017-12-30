@@ -4,6 +4,10 @@ var app = express();
 var server = require('http').Server(app);
 var io =require('socket.io')(server);
 
+// set heartbeat parameters
+io.set('heartbeat timeout', 4000); 
+io.set('heartbeat interval', 2000);
+
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 1234;
