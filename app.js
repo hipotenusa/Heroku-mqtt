@@ -21,7 +21,7 @@ io.sockets.on('connection', function(socket)
     console.log("Client has connected");
 
     socket.on('disconnect', function() {
-      console.log("Client has disconnected";
+      console.log("Client has disconnected");
     });
 
     socket.on('theSwitch', function (data) {
