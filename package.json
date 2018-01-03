@@ -1,18 +1,17 @@
 {
-  "name": "funny-led",
+  "name": "Heroku-mqtt",
   "version": "1.0.0",
-  "description": "ejemplo servidor express",
+  "description": "Ejemplo Heroku MQTT",
   "main": "express.js",
   "dependencies": {
-    "express": "*",
-    "socket.io": "*"
+    "express": "*"
   },
   "scripts": {
     "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hipotenusa/funny-led.git"
+    "url": "git+https://github.com/hipotenusa/Heroku-mqtt.git"
   },
   "engines": {
     "node": "4.7.2"
@@ -20,7 +19,7 @@
   "author": "Alfonso Gomez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hipotenusa/funny-led/issues"
+    "url": "https://github.com/hipotenusa/Heroku-mqtt/issues"
   },
-  "homepage": "https://github.com/hipotenusa/funny-led#readme"
+  "homepage": "https://github.com/hipotenusa/Heroku-mqtt#readme"
 }
