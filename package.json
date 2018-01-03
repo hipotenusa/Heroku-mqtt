@@ -4,7 +4,8 @@
   "description": "Ejemplo Heroku MQTT",
   "main": "express.js",
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "mqtt": "*",
   },
   "scripts": {
     "start": "node app.js"
