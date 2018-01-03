@@ -5,7 +5,7 @@
   "main": "express.js",
   "dependencies": {
     "express": "*",
-    "mqtt": "*",
+    "mqtt": "*"
   },
   "scripts": {
     "start": "node app.js"
