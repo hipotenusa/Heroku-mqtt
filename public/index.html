@@ -4,42 +4,7 @@
         <title>Funny Led</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
         <script src='//code.jquery.com/jquery-1.7.2.min.js'></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script>
-            var socket = io.connect();
-            
-            $(document).ready(function() {
-                $("#theSwitch").click(function() {
-                    if (document.getElementById("theSwitch").checked) {
-                        socket.emit('theSwitch' , {status: 'On'})
-                    }
-                    else {
-                        socket.emit('theSwitch' , {status: 'Off'})
-                    }
-                });
-            });
-            
-            socket.on('connect', function() {
-                console.log("connected!");
-            });
-            
-            socket.on('theSwitch', function(data)
-            {
-                if (data.status == "On")
-                    document.getElementById("theSwitch").checked = true;
-                else if (data.status == "Off")
-                    document.getElementById("theSwitch").checked = false;
-            });
-            
-            socket.on('theLed', function(data)
-            {
-                if (data.status == "On")
-                    document.getElementById("theLed").classList.add('led-green');
-                else if (data.status == "Off")
-                    document.getElementById("theLed").classList.remove('led-green');
-            });
-            
-        </script>
+
     </head>
     <body>
         <h1> Socket.io Heroku Test </h1>
